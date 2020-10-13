@@ -75,9 +75,9 @@ function dibujar() {
   function dibujar() {
     if(fondo.cargaOK & vaca.cargaOK & cerdo.cargaOK & pollo.cargaOK) {
       papel.drawImage(fondo.imagen,0,0);
-      papel.drawImage(vaca.imagen,150,25);
-      papel.drawImage(cerdo.imagen,200,100);
-      papel.drawImage(pollo.imagen,225,350);
+      papel.drawImage(vaca.imagen,aleatorio(0,450),aleatorio(0,450));
+      papel.drawImage(cerdo.imagen,aleatorio(0,450),aleatorio(0,450));
+      papel.drawImage(pollo.imagen,aleatorio(0,450),aleatorio(0,450));
     }
 
 }
