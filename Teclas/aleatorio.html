@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Numeros aleatorios</title>
+  </head>
+  <body>
+    <h1> Generador de numeros aleatorios </h1>
+    <script type="text/javascript">
+
+        alert("Ingrese los límites del intervalo de los números");
+        var min = parseInt(prompt("Ingrese el límite inferior"));
+        var max = parseInt(prompt("Ingrese el límite superior"));
+        var aleatorio = Math.random();
+        var z = Math.floor( aleatorio * (max - min + 1)) +  min;
+        document.write(" <p> Numero aleatorio: " + aleatorio + "</p>");
+        document.write(" <p> Numero resultante: " + z + "</p>");
+    </script>
+  </body>
+</html>
