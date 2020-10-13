@@ -68,23 +68,8 @@ function cargarPollos() {
   dibujar();
 }
 
-/*
 function dibujar() {
-  if(fondo.cargaOK) {
-    papel.drawImage(fondo.imagen,0,0);
-  }
-  if(vaca.cargaOK) {
-    papel.drawImage(vaca.imagen,50,125);
-  }
-  if(cerdo.cargaOK) {
-    papel.drawImage(cerdo.imagen,100,200);
-  }
-  if(pollo.cargaOK) {
-    papel.drawImage(pollo.imagen,230,300);
-  }
-*/
-  function dibujar() {
-    if(fondo.cargaOK & vaca.cargaOK & cerdo.cargaOK & pollo.cargaOK) {
+  if(fondo.cargaOK & vaca.cargaOK & cerdo.cargaOK & pollo.cargaOK) {
       papel.drawImage(fondo.imagen,0,0);
       for (var v=0; v < aleatorio(1,10); v++) {
         papel.drawImage(vaca.imagen,aleatorio(0,450),aleatorio(0,450));
@@ -96,8 +81,8 @@ function dibujar() {
         papel.drawImage(pollo.imagen,aleatorio(0,450),aleatorio(0,450));
       }
       papel.drawImage(cerdo.imagen,x,y);
-    }
   }
+}
 
 function aleatorio(min, max) {
   var resultado;
@@ -110,26 +95,18 @@ function dibujarTeclado(evento) {
   switch (evento.keyCode) {
       case teclas.UP:
         y = y - movimiento;
-        console.log(x);
-        console.log(y);
         dibujar();
       break;
       case teclas.DOWN:
         y = y + movimiento;
-        console.log(x);
-        console.log(y);
         dibujar();
       break;
       case teclas.LEFT:
         x = x - movimiento;
-        console.log(x);
-        console.log(y);
         dibujar();
       break;
       case teclas.RIGHT :
         x = x + movimiento;
-        console.log(x);
-        console.log(y);
         dibujar();
       break;
     default:

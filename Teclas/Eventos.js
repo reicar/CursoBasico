@@ -48,7 +48,7 @@ function dibujarTeclado(evento) {
     default:
       console.log("Otra tecla");
     break;
-}
+  }
   /* if(evento.keyCode == teclas.UP) {
     console.log("vamo' pa arriba");
   } else if(evento.keyCode == teclas.DOWN) {
