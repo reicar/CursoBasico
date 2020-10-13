@@ -1,6 +1,13 @@
 var vp = document.getElementById("villaplatzi");
 var papel = vp.getContext("2d")
 
+var teclas = {
+  UP: 38,
+  DOWN: 40,
+  LEFT: 37,
+  RIGHT: 39
+};
+
 var fondo = {
   url: "tile.png",
   cargaOK: false
@@ -36,6 +43,10 @@ cerdo.imagen.addEventListener("load",cargarCerdos);
 pollo.imagen = new Image();
 pollo.imagen.src = pollo.url;
 pollo.imagen.addEventListener("load", cargarPollos);
+
+var x=250;
+var y=250;
+document.addEventListener("keydown", dibujarTeclado);
 
 function cargarFondo() {
   fondo.cargaOK = true;
@@ -84,12 +95,45 @@ function dibujar() {
       for (var v=0; v < aleatorio(1,10); v++) {
         papel.drawImage(pollo.imagen,aleatorio(0,450),aleatorio(0,450));
       }
+      papel.drawImage(cerdo.imagen,x,y);
     }
-
-}
+  }
 
 function aleatorio(min, max) {
   var resultado;
   resultado = Math.floor(Math.random() * (max - min + 1)) + min
   return resultado
+}
+
+function dibujarTeclado(evento) {
+  var movimiento = 5;
+  switch (evento.keyCode) {
+      case teclas.UP:
+        y = y - movimiento;
+        console.log(x);
+        console.log(y);
+        dibujar();
+      break;
+      case teclas.DOWN:
+        y = y + movimiento;
+        console.log(x);
+        console.log(y);
+        dibujar();
+      break;
+      case teclas.LEFT:
+        x = x - movimiento;
+        console.log(x);
+        console.log(y);
+        dibujar();
+      break;
+      case teclas.RIGHT :
+        x = x + movimiento;
+        console.log(x);
+        console.log(y);
+        dibujar();
+      break;
+    default:
+      console.log("Otra tecla");
+    break;
+  }
 }
