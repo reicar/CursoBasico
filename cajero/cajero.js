@@ -1,7 +1,6 @@
 class Billete
 {
-  constructor(v, c)
-  {
+  constructor(v, c) {
     this.valor = v;
     this.cantidad = c;
   }
@@ -25,45 +24,33 @@ var resultado = document.getElementById("resultado");
 var b = document.getElementById("extraer");
 b.addEventListener("click", entregarDinero);
 
-function entregarDinero()
-{
-    var t = document.getElementById("dinero");
-    dinero = parseInt(t.value);
-    for(var bi of caja)
-    {
-
-      if(dinero > 0)
-      {
-        div = Math.floor(dinero / bi.valor);
-
-        if(div > bi.cantidad)
-        {
-          papeles = bi.cantidad
-        }
-        else
-        {
+function entregarDinero() {
+  resultado.innerHTML = "";
+  entregado = [];
+  var t = document.getElementById("dinero");
+  dinero = parseInt(t.value);
+  for(var bi of caja) {
+    if(dinero > 0) {
+      div = Math.floor(dinero / bi.valor);
+      if(div > bi.cantidad) {
+        papeles = bi.cantidad
+      } else {
           papeles = div;
-        }
-
+      }
+      if (papeles != 0) {
         entregado.push(new Billete(bi.valor,papeles));
         dinero -= (bi.valor * papeles);
-
+        bi.cantidad -= papeles;
+        console.log(caja);
       }
-
     }
+  }
 
-    if(dinero > 0)
-    {
-
-        resultado.innerHTML = " No hay dinero suficiente ";
-    }
-    else
-    {
-        for(var e of entregado)
-        {
-          resultado.innerHTML += e.cantidad + " billetes de $" + e.valor + "<br/>";
-        }
-    }
-
-
+  if(dinero > 0) {
+    resultado.innerHTML = " No hay dinero suficiente ";
+  } else {
+      for(var e of entregado) {
+        resultado.innerHTML += e.cantidad + " billetes de $" + e.valor + "<br/>";
+      }
+  }
 }
